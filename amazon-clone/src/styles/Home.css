@@ -6,11 +6,6 @@
     max-width: 1500px;
 }
 
-.home__container {
-
-}
-
-
 .home__image {
     width: 100%;
     z-index: -1; /* will sit under any other elements */
