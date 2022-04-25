@@ -5,12 +5,12 @@ import { useStateValue} from "./StateProvider"
 import CartItem from './CartItem'
 
 function Checkout() {
-    const [{ basket }] = useStateValue();
+    const [{ cart }] = useStateValue();
 
     function showCartItems() {
         const items = [];
-        for (const index in basket) {
-            items.push(CartItem(basket[index]));
+        for (const index in cart) {
+            items.push(CartItem(cart[index]));
         }
         return items;
     }

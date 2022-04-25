@@ -1,19 +1,33 @@
 export const initialState = {
-    basket: [],
+    cart: [],
+    user: null,
 };
 
+{ /* confused here */ }
+export const getCartTotal = (cart) =>
+    cart?.reduce((amount, item) => item.price + amount, 0);
+
 const reducer = (state, action) => {
-    console.log(action);
     switch(action.type) {
-        case "ADD_TO_BASKET":
+        case "SET_USER":
             return {
                 ...state,
-                basket: [...state.basket, action.item]
+                user: action.user
             }
-        case "REMOVE_FROM_BASKET":
+        case "ADD_TO_CART":
+            return {
+                // return what the state looked like before but add the new item
+                ...state,
+                cart: [...state.cart, action.item]
+            }
+        case "REMOVE_FROM_CART":
+            const index = state.cart.findIndex((item) => item.id === action.item.id);
+            if (index == -1) {
+                console.log("index was -1");
+            }
             return {
                 ...state,
-                basket: state.basket.filter((item) => item.id !== action.item.id)
+                cart: state.cart.filter((item) => item !== state.cart[index])
             }
         default:
             return state;

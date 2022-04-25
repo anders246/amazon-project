@@ -3,12 +3,12 @@ import './styles/Product.css'
 import { useStateValue} from "./StateProvider"
 
 function Product({ id, title, image, price, rating }) {
-    const [{ basket }, dispatch] = useStateValue();
+    const [ {cart}, dispatch ] = useStateValue();
 
-    function addToBasket() {
+    function addToCart() {
         // dispatch an item into data layer
         dispatch({
-            type: "ADD_TO_BASKET",
+            type: "ADD_TO_CART",
             item: {
                 id: id,
                 title: title,
@@ -28,15 +28,13 @@ function Product({ id, title, image, price, rating }) {
                 <strong>{price}</strong>
             </p>
             <div className="product__rating">
-                {Array(rating).fill().map((_, i) => (
-                    <p>🌟</p>
-                ))}
+                {Array(rating).fill().map(() => (<p>🌟</p>))} {/* fill array with x# of ? items, map each item to star */ }
             </div>
         </div>
 
         <img src={image} alt=""></img>
 
-        <button onClick={addToBasket}>Add to basket</button>
+        <button onClick={addToCart}>Add to cart</button>
 
     </div>
   )

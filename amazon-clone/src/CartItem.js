@@ -1,39 +1,35 @@
 import React from 'react'
 import './styles/CartItem.css'
 import { useStateValue} from "./StateProvider"
+import './styles/CartItem.css'
 
 function CartItem(item) {
-    const [{ basket }, dispatch] = useStateValue();
+    const [{ cart }, dispatch] = useStateValue();
 
-    function removeFromBasket() {
+    function removeFromCart() {
         // dispatch an item into data layer
         dispatch({
-            type: "REMOVE_FROM_BASKET",
+            type: "REMOVE_FROM_CART",
             item: {
                 id: item.id,
-                title: item.title,
-                image: item.image,
-                price: item.price,
-                rating: item.rating,
             }
         })
     }
 
   return (
-    <div className='cartitem'>
-        <div className='cartitem_container'>
-            <div>
-                <img src={item.image} alt=""></img>
-                <p>{item.title}</p>
-                <p>{item.price}</p>
-                <div className="product__rating">
-                {Array(item.rating).fill().map((_, i) => (
-                    <p>🌟</p>
-                ))}
+    <div className='cartItem'>
+        <img className="cartItem__image" src={item.image} alt=""></img>
+
+        <div className='cartItem__info'>
+            <p className='cartItem__title'>{item.title}</p>
+            <p className='cartItem__price'>
+                <small>$</small>
+                <strong>{item.price}</strong>
+            </p>
+            <div className="cartItem__rating">
+                {Array(item.rating).fill().map(() => (<p>🌟</p>))}
             </div>
-                <button onClick={removeFromBasket}>Remove from basket</button>
-                <p>{basket.length}</p>
-            </div>
+            <button onClick={removeFromCart}>Remove from basket</button>
         </div>
     </div>
   )
