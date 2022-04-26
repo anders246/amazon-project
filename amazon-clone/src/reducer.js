@@ -3,9 +3,7 @@ export const initialState = {
   user: null,
 };
 
-{
-  /* confused here */
-}
+/* confused here */
 export const getCartTotal = (cart) =>
   cart?.reduce((amount, item) => item.price + amount, 0);
 
@@ -24,7 +22,7 @@ const reducer = (state, action) => {
       };
     case 'REMOVE_FROM_CART':
       const index = state.cart.findIndex((item) => item.id === action.item.id);
-      if (index == -1) {
+      if (index === -1) {
         console.log('index was -1');
       }
       return {

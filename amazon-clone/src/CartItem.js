@@ -4,6 +4,7 @@ import { useStateValue } from './StateProvider';
 import './styles/CartItem.css';
 
 function CartItem(item) {
+  // eslint-disable-next-line no-unused-vars
   const [{ cart }, dispatch] = useStateValue();
 
   function removeFromCart() {

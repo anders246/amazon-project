@@ -3,7 +3,7 @@ import './styles/Product.css';
 import { useStateValue } from './StateProvider';
 
 function Product({ id, title, image, price, rating }) {
-  const [{ cart }, dispatch] = useStateValue();
+  const [dispatch] = useStateValue();
 
   function addToCart() {
     // dispatch an item into data layer

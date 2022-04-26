@@ -5,7 +5,7 @@ import CartItem from './CartItem';
 import { Link } from 'react-router-dom';
 
 function Payment() {
-  const [{ cart, user }, dispatch] = useStateValue();
+  const [{ cart, user }] = useStateValue();
 
   return (
     <div className="payment">
