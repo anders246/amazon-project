@@ -1,6 +1,6 @@
-import React from "react"
-import './styles/Home.css'
-import Product from "./Product.js"
+import React from 'react';
+import './styles/Home.css';
+import Product from './Product.js';
 
 function Home() {
   return (
@@ -11,7 +11,7 @@ function Home() {
           src="https://images-eu.ssl-images-amazon.com/images/G/02/digital/video/merch2016/Hero/Covid19/Generic/GWBleedingHero_ENG_COVIDUPDATE__XSite_1500x600_PV_en-GB._CB428684220_.jpg"
           alt=""
         ></img>
-      
+
         <div className="home__row">
           <Product
             id="12321341"
@@ -20,7 +20,7 @@ function Home() {
             rating={5}
             image="https://images-na.ssl-images-amazon.com/images/I/51Zymoq7UnL._SX325_BO1,204,203,200_.jpg"
           />
-         <Product
+          <Product
             id="49538094"
             title="Kenwood kMix Stand Mixer for Baking, Stylish Kitchen Mixer with K-beater, Dough Hook and Whisk, 5 Litre Glass Bowl"
             price={239.0}
@@ -61,7 +61,6 @@ function Home() {
             rating={4}
             image="https://images-na.ssl-images-amazon.com/images/I/6125mFrzr6L._AC_SX355_.jpg"
           />
-        
         </div>
       </div>
     </div>
