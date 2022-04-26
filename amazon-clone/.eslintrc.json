@@ -4,9 +4,8 @@
         "es2021": true
     },
     "extends": [
-        "eslint:recommended",
-        "plugin:react/recommended",
-        "plugin:prettier/recommended"
+        "react-app",
+        "prettier"
     ],
     "parserOptions": {
         "ecmaFeatures": {
@@ -18,12 +17,9 @@
     "plugins": [
         "react"
     ],
-    "rules": {
-        "endOfLine": "auto",
-    },
     "settings": {
         "react": {
             "version": "detect"
+        }
     }
-  }
 }
