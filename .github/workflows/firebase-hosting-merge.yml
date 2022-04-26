@@ -12,7 +12,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: |
-          cd ../
+          cd ..
+          ls
+          cd ..
+          ls
           cd amazon-clone
           ls
           npm ci
