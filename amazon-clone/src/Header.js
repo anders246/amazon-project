@@ -31,7 +31,8 @@ function Header() {
       </Link>
 
       <div className="header__search">
-        <input className="header__searchInput" type="text" />
+        <p className="test_text">deployed</p>
+        <input className="header__searchInput" type="text"></input>
         <SearchIcon className="header__searchIcon" />
       </div>
 
