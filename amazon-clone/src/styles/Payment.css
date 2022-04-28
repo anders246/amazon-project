@@ -33,6 +33,6 @@
     padding-left: 25px;
 }
 
-.payment__items {
+.payment__items, .payment__details {
     flex: 0.8;
 }
