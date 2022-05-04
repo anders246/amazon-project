@@ -48,7 +48,7 @@ function Payment() {
     // can only hit buy button once
     setProcessing(true);
 
-    const payload = await stripe
+    await stripe
       .confirmCardPayment(clientSecret, {
         payment_method: {
           card: elements.getElement(CardElement),
