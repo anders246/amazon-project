@@ -10,13 +10,13 @@ function Header() {
   const [{ cart, user }] = useStateValue();
 
   function cartItemCount() {
+    // console.log('user is: ' + user[0] + 'and id is: ' + user[0]?.id);
     return cart?.length;
   }
 
   function handleAuthentication() {
     if (user) {
       auth.signOut();
-    } else {
     }
   }
 
@@ -31,7 +31,6 @@ function Header() {
       </Link>
 
       <div className="header__search">
-        <p className="test_text">deployed</p>
         <input className="header__searchInput" type="text"></input>
         <SearchIcon className="header__searchIcon" />
       </div>
@@ -50,10 +49,12 @@ function Header() {
           </div>
         </Link>
 
-        <div className="header__option">
-          <span className="header__optionLineOne">Returns</span>
-          <span className="header__optionLineTwo">& Orders</span>
-        </div>
+        <Link to="/orders">
+          <div className="header__option">
+            <span className="header__optionLineOne">Returns</span>
+            <span className="header__optionLineTwo">& Orders</span>
+          </div>
+        </Link>
 
         <div className="header__option">
           <span className="header__optionLineOne">Your</span>

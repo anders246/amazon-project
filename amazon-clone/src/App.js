@@ -10,21 +10,20 @@ import { auth } from './db/firebase';
 import { useStateValue } from './StateProvider';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
+import Orders from './Orders';
 
 const promise = loadStripe(
   'pk_test_51KtKKaIjb8XnIDssZ8VnNZNaGKgu1ivcBse83pvq1VBAhc2urwKipPpq5pDdDW3AQ6mtfSEPAyicHy1T1PstGsQN005RCSw1lq',
 );
 
 function App() {
-  const [dispatch] = useStateValue();
+  const [, dispatch] = useStateValue();
 
   useEffect(() => {
     // will only run once when App component loads
 
     // whenever auth changes
     auth.onAuthStateChanged((authUser) => {
-      console.log('user is ', authUser);
-
       if (authUser) {
         //user just logged in/ the user was logged in
         dispatch({
@@ -60,6 +59,7 @@ function App() {
               </Elements>,
             ]}
           />
+          <Route path="/orders" element={[<Header />, <Orders />]} />
           <Route path="/" element={[<Header />, <Home />]} />
         </Routes>
       </div>

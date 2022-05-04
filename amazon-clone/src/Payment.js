@@ -7,11 +7,12 @@ import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import CurrencyFormat from 'react-currency-format';
 import { getCartTotal } from './reducer';
 import axios from './axios';
+import { db } from './db/firebase';
 
 function Payment() {
   const navigate = useNavigate();
 
-  const [{ cart, user }] = useStateValue();
+  const [{ cart, user }, dispatch] = useStateValue();
   const stripe = useStripe();
   const elements = useElements();
 
@@ -55,9 +56,26 @@ function Payment() {
       })
       .then(({ paymentIntent }) => {
         // paymentIntent = payment confirmation
+
+        // nosql
+        console.log('user is: ' + user + 'and id is: ' + user?.id);
+        db.collection('users')
+          .doc(user?.uid)
+          .collection('orders')
+          .doc(paymentIntent.id)
+          .set({
+            cart: cart,
+            amount: paymentIntent.amount,
+            created: paymentIntent.created,
+          });
+
         setSucceeded(true);
         setError(null);
         setProcessing(false);
+
+        dispatch({
+          type: 'EMPTY_CART',
+        });
 
         navigate('/orders');
       });

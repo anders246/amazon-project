@@ -29,6 +29,11 @@ const reducer = (state, action) => {
         ...state,
         cart: state.cart.filter((item) => item !== state.cart[index]),
       };
+    case 'EMPTY_CART':
+      return {
+        ...state,
+        cart: [],
+      };
     default:
       return state;
   }
