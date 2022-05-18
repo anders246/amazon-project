@@ -11,9 +11,8 @@ function Login() {
   const signIn = (e) => {
     // prevents page from refreshing
     e.preventDefault();
-    // firebase stuff
 
-    // confused about the differences in these lambda functions
+    // firebase
     auth
       .signInWithEmailAndPassword(email, password)
       .then((auth) => {
@@ -30,7 +29,6 @@ function Login() {
       .then((auth) => {
         if (auth) {
           navigate('/');
-          // if auth is sucessful, redirect
         }
       })
       .catch((error) => alert(error.message));
@@ -75,9 +73,9 @@ function Login() {
         </form>
 
         <p>
-          By signing-in you agree to PSEUDO Amazon's Condition's of Use & Sale.
-          Please see our Privacy Notice, our Cookies Notice and our Interest
-          based Ads Notice.
+          By signing-in you agree to **PSEUDO** Amazon's Condition's of Use &
+          Sale. Please see our Privacy Notice, our Cookies Notice and our
+          Interest based Ads Notice.
         </p>
 
         <button onClick={signUp} className="login__signUpButton">

@@ -3,7 +3,6 @@ export const initialState = {
   user: null,
 };
 
-/* confused here */
 export const getCartTotal = (cart) =>
   cart?.reduce((amount, item) => item.price + amount, 0);
 

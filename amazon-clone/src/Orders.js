@@ -27,7 +27,7 @@ function Orders() {
     }
   }, [user]);
 
-  /* confused here */
+  /* revisit this */
   return (
     <div className="orders">
       <h1>Your orders</h1>

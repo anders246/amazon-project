@@ -31,7 +31,7 @@ function Payment() {
     const getClientSecret = async () => {
       const response = await axios({
         method: 'post',
-        // stripe expects the currecy in a currency subunit (like including cents)
+        // stripe expects the currecy in a currency subunit
         url: `/payments/create?total=${getCartTotal(cart) * 100}`,
       });
       setClientSecret(response.data.clientSecret);
@@ -55,7 +55,7 @@ function Payment() {
         },
       })
       .then(({ paymentIntent }) => {
-        // paymentIntent = payment confirmation
+        // paymentIntent basically is the payment confirmation here
 
         // nosql
         console.log('user is: ' + user + 'and id is: ' + user?.id);
@@ -82,7 +82,6 @@ function Payment() {
   };
 
   const handleChange = (event) => {
-    /* confused here */
     setDisabled(event.empty);
     setError(event.error ? event.error.message : '');
   };
@@ -130,7 +129,7 @@ function Payment() {
             <h3>Payment Method</h3>
           </div>
           <div className="payment__details">
-            {/* Stripe stuff */}
+            {/* Stripe */}
             <form onSubmit={handleSubmit}>
               <CardElement onChange={handleChange}></CardElement>
 
@@ -147,7 +146,7 @@ function Payment() {
                   <span>{processing ? <p>Processing</p> : 'Buy now'}</span>
                 </button>
               </div>
-              {/* Error section - confused here*/}
+              {/* Error section */}
               {error && <div>{error}</div>}
             </form>
           </div>
